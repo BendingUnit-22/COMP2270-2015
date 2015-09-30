@@ -1,0 +1,62 @@
+# Rixing Wu
+# Lab 3
+# 9/23/2015
+
+# 1. Show (a * b)’ * (a’ + b) * (b’ + b) = a’
+	  (a * b)’ * (a’ + b) * 1  = a’ Complement
+	  (a * b)’ * (a’ + b)  = a’	  Identity
+	  (a' + b') * (a’ + b) = a'     DeMorgan's
+	   a' * (b’ + b) = a'		  Distributive
+	   a * 1 = a’   		  Complement
+	   a’ = a’			  Identity
+
+# 2. Show c + (b * c)’ = 1
+	   c + b’ + c’ = 1 		   DeMorgan’s
+	   c + c’ + b’ = 1    		   Associate
+	   1 + b’ = 1                    Associate
+	   1 = 1 	                  Identity
+
+# 3. Show (a + c) * (a * d + a * d’) + a * c + c = a + c
+   	 (a + c) * (a * (d + d’)) + a * c + c = a + c     Distributive
+	 (a + c) * (a * 1) + a * c + c = a + c            Complement
+         (a + c) * a + a * c + c = a + c	 	     Identity
+	  a + a * c + c = a + c 			     Absorption
+          a + c = a + c 	  			     Absorption
+
+# 4. Simplify a’ * (a + b) + (b + a * a) * (a + b’)
+            (a’ * a) + (a’ * b) + (b + a * a) * (a + b’) Distributive
+	     0 + (a’ * b) + (b + a * a) * (a + b’) 	    Complement
+	     0 + (a’ * b) + (b + a) * (a + b’) 	    Idempotence
+	     0 + (a’ * b) + a + (b * b’)		    Distributive
+	     0 + (a’ * b) + a + 0 			    Complement
+	     (a’ * b) + a + 0 				    Identity
+	     (a’ * b) + a 				    Identity
+	     (a’ + a) * (b + a) 			    Distributive
+	     1 * (b + a)				    Complement
+	     b + a 					    Identity
+		
+ # 5. Show (a’ * b’) + (a’ * b) + (a * b’) = (a * b)’
+	    a’ * (b’ + b) + (a * b’) = (a * b)’	    Distributive
+	    a’ * 1 + (a * b’) = (a * b)’		    Complement 	
+	    a’ + (a * b’) = (a * b)’			    Identity
+	    (a’ + a) * (a’ + b’) = (a * b)’		    Distributive
+	     1 * (a’ + b’) = (a * b)’ 			    Complement
+	    (a’ + b’) 	= (a * b)’ 			    Identity
+	    (a * b)’ = (a * b)’			    DeMorgan’s
+
+
+ #6, #7 see lab3.circ
+
+
+ #8 
+	a) 3 bits
+	b) 2 bits
+
+    
+
+
+
+
+
+
+          
