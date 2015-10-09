@@ -2,26 +2,25 @@
 #Lab 4
 #Oct 7, 2015
 
-—————————————————————————
+————————————————————————-
 Farmer	 |	  | 
 Wolf	 |	  |
 Goat	 | River  | Home
 Cabbage | 	  |
 ________|________|_______
-		
+   0 		      1
 
 Encoding:
 Farmer  = F
 Wolf    = W
 Goat    = G
 Cabbage = C
-River   = -
 
 # What information constitutes a state?
 
-  A state should have representation of each object, also a separator to illustrator 
-  which side of the river the farmer, the wolf, the goat, and the cabbage are on. 
-  
+  A state should have representation of each object, each object is represented
+  by a 0 or a 1, 0 is when the object on the left of the river, the 1 is when 
+  the creative is on the desire side of the river.
 
 Possible legal States:
 
@@ -36,6 +35,7 @@ W-FGC
 FWG-C
 -FWGC    <- goal state
 
+
 #What is an input for this machine?
 
  The transitions are the inputs for this machine. There are four possible
@@ -48,12 +48,13 @@ G - Farmer crosses river with Goat
 C - Farmer crosses river with Cabbage
 
 #How many bits do you need for each?
- There are total 10 possible legal states, 4 bits is enough to represent all the  states. For inputs there are 4 possible transitions, 2 bits is is enough. 
+ There are total 10 possible legal states, 4 bits is enough to represent all the  states. For inputs, there are 4 possible transitions, 2 bits is is enough in this case. 
 
 State	   binary  
 
+
 FWGC-       0000
-WC-FG	     0001
+WC-FG       0001
 FWC-G       0010
 C-FWG       0011 
 FGC-W       0100 
@@ -63,6 +64,17 @@ W-FGC       0111
 FWG-C       1000 
 -FWGC       1001
 
+FWGC
+0000  0000
+1010  0001
+0010  0010
+1110  0011 
+0100  0100 
+1101  0101 
+0101  0110 
+1011  0111 
+0001  1000 
+1111  1001
 
 input       binary
  F            00
@@ -70,32 +82,79 @@ input       binary
  G            10
  C            11
 
-Cstate | In | Nstate | Out
-0000   | 00 |  0000  |  0  
-0000   | 10 |  0001  |  0
-0001   | 00 |  0010  |  0
-0001   | 10 |  0000  |  0
-0010   | 00 |  0001  |  0
-0010   | 01 |  0011  |  0
-0010   | 11 |  0111  |  0
-0011   | 01 |  0010  |  0
-0011   | 10 |  0100  |  0
-0100   | 10 |  0011  |  0
-0100   | 11 |  0101  |  0
-0101   | 00 |  0110  |  0
-0101   | 01 |  1000  |  0
-0101   | 11 |  0100  |  0
-0110   | 00 |  0101  |  0
-0110   | 10 |  1001  |  1
-0111   | 10 |  1000  |  0
-0111   | 11 |  0010  |  0
-1000   | 01 |  0101  |  0
-1000   | 10 |  0111  |  0
-1001   | 10 |  0110  |  0
+F  W  G  C   |in1 in2 | F+ W+ G+ C+ | Out 
+0  0  0  0   | 1   0 |  1  0  1  0  |  0
+1  0  1  0   | 0   0 |  0  0  1  0  |  0
+1  0  1  0   | 1   0 |  0  0  0  0  |  0
+0  0  1  0   | 0   0 |  1  0  1  0  |  0
+0  0  1  0   | 0   1 |  1  1  1  0  |  0
+0  0  1  0   | 1   1 |  1  0  1  1  |  0
+1  1  1  0   | 0   1 |  0  0  1  0  |  0
+1  1  1  0   | 1   0 |  0  1  0  0  |  0
+0  1  0  0   | 1   0 |  1  1  1  0  |  0
+0  1  0  0   | 1   1 |  1  1  0  1  |  0
+1  1  0  1   | 0   0 |  0  1  0  1  |  0
+1  1  0  1   | 0   1 |  0  0  0  1  |  0
+1  1  0  1   | 1   1 |  0  1  0  0  |  0
+0  1  0  1   | 0   0 |  1  1  0  1  |  0
+0  1  0  1   | 1   0 |  1  1  1  1  |  1
+1  0  1  1   | 1   0 |  0  0  0  1  |  0
+1  0  1  1   | 1   1 |  0  0  1  0  |  0
+0  0  0  1   | 0   1 |  1  1  0  1  |  0
+0  0  0  1   | 1   0 |  1  0  1  1  |  0
 
 # Is this a Moore or Mealy machine? Why?
 
-The difference between Moore and Mealy is that in a Moore state machine, the outputs depend only on the current state, while in a Mealy state machine, the outputs can also be affected directly by the inputs. In this example, the output is directly based by the type of inputs either F, W, G, or C, so it is a Mealy machine.
+The difference between Moore and Mealy is that in a Moore state machine, the outputs depend only on the current state, while in a Mealy state machine, the outputs can also be affected directly by the inputs. In this example, the output is directly based by the type of inputs either F, W, G, or C, so it is a moore machine.
+
+
+
+
+A0 A1 A2 A3  |A4  A5 | T | D1 | D2 | D3 
+0  0  0  0   | 1   0 | 1 | 0  | 1  | 0 
+1  0  1  0   | 0   0 | 1 | 0  | 1  | 0
+1  0  1  0   | 1   0 | 1 | 0  | 0  | 0
+0  0  1  0   | 0   0 | 1 | 0  | 1  | 0
+0  0  1  0   | 0   1 | 1 | 1  | 1  | 0
+0  0  1  0   | 1   1 | 1 | 0  | 1  | 1
+1  1  1  0   | 0   1 | 1 | 0  | 1  | 0
+1  1  1  0   | 1   0 | 1 | 1  | 0  | 0
+0  1  0  0   | 1   0 | 1 | 1  | 1  | 0
+0  1  0  0   | 1   1 | 1 | 1  | 0  | 1
+1  1  0  1   | 0   0 | 1 | 1  | 0  | 1
+1  1  0  1   | 0   1 | 1 | 0  | 0  | 1
+1  1  0  1   | 1   1 | 1 | 1  | 0  | 0
+0  1  0  1   | 0   0 | 1 | 1  | 0  | 1
+0  1  0  1   | 1   0 | 1 | 1  | 1  | 1
+1  0  1  1   | 1   0 | 1 | 0  | 0  | 1
+1  0  1  1   | 1   1 | 1 | 0  | 1  | 0
+0  0  0  1   | 0   1 | 1 | 1  | 0  | 1
+0  0  0  1   | 1   0 | 1 | 0  | 1  | 1
+
+
+
+Testing
+
+F  W  G  C   |in1 in2 | F+ W+ G+ C+ | Out Passed?
+0  0  0  0   | 1   0 |  1  0  1  0  |  0    Y
+1  0  1  0   | 0   0 |  0  0  1  0  |  0    Y
+1  0  1  0   | 1   0 |  0  0  0  0  |  0    Y
+0  0  1  0   | 0   0 |  1  0  1  0  |  0    Y
+0  0  1  0   | 0   1 |  1  1  1  0  |  0    Y
+0  0  1  0   | 1   1 |  1  0  1  1  |  0    Y
+1  1  1  0   | 0   1 |  0  0  1  0  |  0    Y
+1  1  1  0   | 1   0 |  0  1  0  0  |  0    Y
+0  1  0  0   | 1   0 |  1  1  1  0  |  0    Y
+0  1  0  0   | 1   1 |  1  1  0  1  |  0    Y
+1  1  0  1   | 0   0 |  0  1  0  1  |  0    Y
+1  1  0  1   | 0   1 |  0  0  0  1  |  0    Y
+1  1  0  1   | 1   1 |  0  1  0  0  |  0    Y
+0  1  0  1   | 0   0 |  1  1  0  1  |  0    Y
+0  1  0  1   | 1   0 |  1  1  1  1  |  1    Y
+1  0  1  1   | 1   0 |  0  0  0  1  |  0    Y
+1  0  1  1   | 1   1 |  0  0  1  0  |  0    Y
+0  0  0  1   | 0   1 |  1  1  0  1  |  0    Y
+0  0  0  1   | 1   0 |  1  0  1  1  |  0    Y
 
 
 
