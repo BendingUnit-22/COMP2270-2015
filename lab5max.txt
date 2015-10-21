@@ -1,0 +1,7 @@
+#lab5max
+
+.data
+
+
+
+.text
