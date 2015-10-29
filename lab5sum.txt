@@ -1,0 +1,29 @@
+#lab5 sum
+.data
+size: .word 5
+vals: .word 1, 10, 100, 1000, 10000
+
+
+.text
+main:
+add $s0, $r0, $r0   	    #count
+add $v0, $r0, $r0          #sum
+la $s1, vals      	    #load array to $s1
+la $s4, size    	    #load array size
+lw $s4, 0($s4)    	    #load value of size
+
+while_begin:
+
+lw $s2, 0($s1)
+
+addi $s0, $s0, 1          #add one to count
+addi $s1, $s1, 4          #next adress
+add $v0, $v0, $s2         #add value to sum
+
+slt $s5, $s0, $s4
+bne $s5, $r0, while_begin
+
+nop
+nop
+nop
+

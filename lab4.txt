@@ -133,9 +133,9 @@ A0 A1 A2 A3  |A4  A5 | T | D1 | D2 | D3
 
 
 
-Testing
+Testing and results
 
-F  W  G  C   |in1 in2 | F+ W+ G+ C+ | Out Passed?
+F  W  G  C   |in1 in2 | F+ W+ G+ C+ | Out  Passed?
 0  0  0  0   | 1   0 |  1  0  1  0  |  0    Y
 1  0  1  0   | 0   0 |  0  0  1  0  |  0    Y
 1  0  1  0   | 1   0 |  0  0  0  0  |  0    Y
@@ -155,10 +155,4 @@ F  W  G  C   |in1 in2 | F+ W+ G+ C+ | Out Passed?
 1  0  1  1   | 1   1 |  0  0  1  0  |  0    Y
 0  0  0  1   | 0   1 |  1  1  0  1  |  0    Y
 0  0  0  1   | 1   0 |  1  0  1  1  |  0    Y
-
-
-
-
-
-
 

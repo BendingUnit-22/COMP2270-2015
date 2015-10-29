@@ -2,6 +2,29 @@
 
 .data
 
-
+in1: .word 2 #a
+in2: .word 5 #b
 
 .text
+main:
+
+
+la $s0, in1 #a
+la $s1, in2 #b
+lw $s0, 0($s0)
+lw $s1, 0($s1)
+add $s0, $s0, $r0
+add $s1, $s1, $r0
+
+slt $s2, $s0, $s1 		                        #if a < b
+bne $s2, $r0, other_wise   
+add $v0, $s0, $r0
+        	             
+j end
+nop
+nop
+
+other_wise:
+add $v0, $s1, $r0
+
+end:

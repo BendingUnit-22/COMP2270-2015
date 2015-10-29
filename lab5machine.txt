@@ -1,0 +1,35 @@
+
+Take the first 5 instructions from your Sum program (the 5 instructions following the main label) and convert them to machine code. Register names are on B-24 in the textbook. $t2, for example, is number 10 and is addressed as 01010.
+
+//add $s0, $r0, $r0   	   
+//add $v0, $r0, $r0   
+//la $s4, size    	          
+//la $s1, vals      	    
+//lw $s4, 0($s4)    	    
+
+
+$s0 = 16
+$r0 = 0
+$s1 = 17  10001
+$s4 = 20  10100
+$v0 = 2
+
+//add $s0, $r0, $r0   	   
+000000 10000 00000 00000 00000 100000
+
+//add $v0, $r0, $r0         
+000000 00010 00000 00000 00000 100000
+
+//la $s4, size  
+001111 00000 10100 0001000000000000 
+//ori $s4,$s4, 0  
+001101 10100 10100 0001000000000000
+
+//la $s1, vals
+001111 00000 10001 0001000000000000 
+001101 10001 10001 0000000000000100
+
+   
+//lw $s4, 0($s4)  
+10001110100101000000000000000000
+
