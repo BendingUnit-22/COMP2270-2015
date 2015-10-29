@@ -1,0 +1,11 @@
+# Minimum min(a,b)
+# a in Ox8
+# b in 0xA
+# final in 0x0 
+LOAD, R1, 0x8   #load value from 0x8
+LOAD, R2, 0xA   #load value from 0xA
+SUB, R3,R2, R1  
+JZG R3,11       # if ( b - a) > 0
+STOR R2, 0x0	 #store B to final
+ADD R1, R2, R0  #overwrite R1 with R2
+STOR R1, 0x0    #store a to final (line 11)

@@ -1,0 +1,8 @@
+#lab6 minimum machine code
+c108
+c20a
+1321
+a311
+e200
+0120
+e100
