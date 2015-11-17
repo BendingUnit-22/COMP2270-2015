@@ -1,0 +1,4 @@
+avg: r5 isn't initialized -2
+LOAD machine code is off -2
+
+min: jump immmediate value should be in hex, and go to line 0x6 - lines with no code don't count -5
