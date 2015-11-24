@@ -1,0 +1,3 @@
+ALU: The MOV instruction should extend the highest bit of the 8 bit value, so 01110011 turns into 00000000 01110011 and 10001000 turns into 11111111 10001000
+
+Decoder: operand labeling is off: the way you've labeled it, Rd should be copied into operand1 if the opcode starts with a 1, not operand1 into operand2
