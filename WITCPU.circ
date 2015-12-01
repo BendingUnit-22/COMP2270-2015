@@ -70,7 +70,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
-    <comp lib="4" loc="(380,140)" name="RAM">
+    <comp lib="4" loc="(350,280)" name="RAM">
       <a name="dataWidth" val="16"/>
     </comp>
   </circuit>
