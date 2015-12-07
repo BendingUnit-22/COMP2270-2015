@@ -1,0 +1,1 @@
+The adder that prev is attached to doesn't actually increment the PC! It should add 1 to the previous value, not 0.
